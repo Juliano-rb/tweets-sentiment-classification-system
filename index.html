@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classifique este tweet!</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/shakrmedia/petal@0.11.1/dist/petal.min.css">
+</head>
+<body>
+    <div class="container-wrap content">    
+        <div class=''>
+            <div class='section-header'>
+                <h2 id ='title'>Classifique o sentimento deste este tweet</h2>
+            </div>  
+            
+            <div class='container stretch' id='tweet_container'>
+                <p>Carregando tweet...</p>
+            </div>
+
+            <div class='container stretch'>
+                <div class="btn-group options">
+                    <button class="btn red hollow"
+                            data-toggle="toggle"
+                            data-toggle-state="active"
+                            onclick="evaluate_tweet('negative')" >Negativo</button>
+                    <button class="btn teal hollow"
+                            data-toggle="toggle"
+                            onclick="evaluate_tweet('neutral')">Neutro</button>
+                    <button class="btn green hollow"
+                            data-toggle="toggle"
+                            onclick="evaluate_tweet('positive')">Positivo</button>
+                </div>
+            </div>
+        </div>     
+    </div>    
+    
+    <div class="fullpage-modal-container" id="thanks-modal">
+        <div class="overlay" onclick="toggle_thanks_modal('hide')"></div>
+        <div class="fullpage-modal-inner-wrap">
+            <div class="fullpage-modal">
+                <span class="close-btn" onclick="toggle_thanks_modal('hide')"></span>
+                <div class="modal-header">
+                    <h3 class="modal-header-text">Obrigado por contribuir!</h3>
+                    <!--<p class="sub">Veja a opção que outras pessoas escolheram:</p>!-->
+                </div>
+                <div class="modal-body">
+                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Dolores quisquam eum molestias amet et, officia at suscipit quo, tenetur esse, adipisci nisi beatae ratione.
+                    Necessitatibus, est dicta ea totam neque!
+                    </p>!-->
+                </div>
+                <div class="modal-footer btn-row">
+                    <button class="btn green align-right" onclick="toggle_thanks_modal('hide')">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        document.onload = new_tweet()
+        rand_title_color()
+    </script>
+</body>
+</html>

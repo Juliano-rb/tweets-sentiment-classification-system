@@ -4,13 +4,6 @@ module.exports = {
     async retrieve(req,res){
         console.log("retrieve tweet called")
 
-        const user_password = req.body.pass
-        const password = process.env.PASSWORD
-
-        if (password && user_password != password){
-            return res.json({status:'error', message:`invalid password provided`})
-        }
-
         try {
             // get a random document index
             // const count = await Tweet.countDocuments()
@@ -30,8 +23,21 @@ module.exports = {
     },
     async evaluate (req,res) {
         console.log(req.params)
+        console.log(req.body)
+
         const user_evaluation = req.params.evaluation
         const tweet_id = req.params.id
+
+        const user_password = req.body.pass
+        const password = process.env.PASSWORD
+
+        console.log('user:'+user_password)
+        console.log('server:'+password)
+
+        if (password && user_password != password){
+            return res.json({status:'error', message:`invalid password provided`})
+        }
+
 
         if ( !['neutral','positive','negative'].includes(user_evaluation) ) {
             return res.json({status:'error', message:'invalid evaluation string'})

@@ -33,7 +33,7 @@ const post_eval = (tweet_doc_id, sentiment) => {
     return axios.post(
         `${api_url}/evaluate/${tweet_doc_id}/${sentiment}`,
         {
-            pass: document.cookie.pass,
+            "pass": localStorage.getItem('pass')
         }
     )
 }
@@ -89,7 +89,7 @@ const rand_title_color = () => {
 const ask_for_pass = () =>{
     const pass = prompt("Atualmente esta aplicação está disponível apenas para um grupo pequeno de pessoas, insira a senha: ")
 
-    document.cookie = `pass=${pass}`
+    localStorage.setItem('pass', pass);
 }
 
 const toggle_thanks_modal = (action) => {

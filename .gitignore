@@ -1,0 +1,5 @@
+.env
+brainstorming.md
+
+node_modules/
+yarn-error.log*

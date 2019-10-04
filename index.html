@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Avalie este tweet!</title>
+    <title>Classifique este tweet!</title>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet"
@@ -13,9 +13,9 @@
 </head>
 <body>
     <div class="container-wrap content">    
-        <div class='container stretch'>
+        <div class=''>
             <div class='section-header'>
-                <h2 id ='title'>Defina o sentimento expressado por este tweet</h2>
+                <h2 id ='title'>Classifique o sentimento deste este tweet</h2>
             </div>  
             
             <div class='container stretch' id='tweet_container'>
@@ -40,22 +40,22 @@
     </div>    
     
     <div class="fullpage-modal-container" id="thanks-modal">
-        <div class="overlay" data-modal-close=""></div>
+        <div class="overlay" onclick="toggle_thanks_modal('hide')"></div>
         <div class="fullpage-modal-inner-wrap">
             <div class="fullpage-modal">
-                <span class="close-btn" data-modal-close=""></span>
+                <span class="close-btn" onclick="toggle_thanks_modal('hide')"></span>
                 <div class="modal-header">
                     <h3 class="modal-header-text">Obrigado por contribuir!</h3>
-                    <p class="sub">Veja a opção que outras pessoas escolheram:</p>
+                    <!--<p class="sub">Veja a opção que outras pessoas escolheram:</p>!-->
                 </div>
                 <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Dolores quisquam eum molestias amet et, officia at suscipit quo, tenetur esse, adipisci nisi beatae ratione.
                     Necessitatibus, est dicta ea totam neque!
-                    </p>
+                    </p>!-->
                 </div>
                 <div class="modal-footer btn-row">
-                    <button class="btn green align-right" onclick="toggle_thanks_modal('none')" data-modal-close="">Ok</button>
+                    <button class="btn green align-right" onclick="toggle_thanks_modal('hide')">Ok</button>
                 </div>
             </div>
         </div>

@@ -9,12 +9,12 @@ const new_tweet = () => {
 }
 
 const evaluate_tweet = (sentiment) => {
-    const doc_id = document.getElementById('tweet_container').doc_id
+    const doc_id = document.getElementById('tweet_container').getAttribute('doc_id')
 
     post_eval(doc_id, sentiment)
     .then( response => {
         console.log(response.data)
-        toggle_thanks_modal('table')
+        toggle_thanks_modal('show')
         new_tweet()
     })
     .catch( error => console.log(error))
@@ -55,7 +55,7 @@ const show_tweet = (tweet) =>{
                         </p>
                     </div>
                 </div>
-                <div>
+                <div class='raw_tweet'>
                     <blockquote>
                         <p>
                             ${text}
@@ -67,7 +67,7 @@ const show_tweet = (tweet) =>{
         }
     })
 
-    container.doc_id = doc_id
+    container.setAttribute('doc_id', doc_id)
 }
 
 const rand_title_color = () => {
@@ -76,8 +76,15 @@ const rand_title_color = () => {
     document.getElementById('title').style.color = colors[index]
 }
 
-const toggle_thanks_modal = (visibility) => {
+const toggle_thanks_modal = (action) => {
     const modal = document.getElementById('thanks-modal')
 
-    modal.style.display = visibility
+    if (action == 'show'){
+        modal.style.opacity = 1;
+        modal.style.visibility = 'visible'
+    }
+    else{
+        modal.style.opacity = 0;
+        modal.style.visibility = 'hidden'
+    }
 }

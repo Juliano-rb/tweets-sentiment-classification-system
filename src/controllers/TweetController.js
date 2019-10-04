@@ -4,6 +4,13 @@ module.exports = {
     async retrieve(req,res){
         console.log("retrieve tweet called")
 
+        const user_password = req.body.pass
+        const password = process.env.PASSWORD
+
+        if (password && user_password != password){
+            return res.json({status:'error', message:`invalid password provided`})
+        }
+
         try {
             // get a random document index
             // const count = await Tweet.countDocuments()

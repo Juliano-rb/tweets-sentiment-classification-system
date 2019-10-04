@@ -14,8 +14,13 @@ const evaluate_tweet = (sentiment) => {
     post_eval(doc_id, sentiment)
     .then( response => {
         console.log(response.data)
-        toggle_thanks_modal('show')
-        new_tweet()
+        if (response.data.status == 'error'){
+            alert("Um erro ocorreu :/")
+        }
+        else{
+            toggle_thanks_modal('show')
+            new_tweet()
+        }
     })
     .catch( error => console.log(error))
 }
@@ -25,7 +30,12 @@ const get_tweet = () => {
 }
 
 const post_eval = (tweet_doc_id, sentiment) => {
-    return axios.post(`${api_url}/evaluate/${tweet_doc_id}/${sentiment}`)
+    return axios.post(
+        `${api_url}/evaluate/${tweet_doc_id}/${sentiment}`,
+        {
+            pass: document.cookie.pass,
+        }
+    )
 }
 
 const show_tweet = (tweet) =>{
@@ -74,6 +84,12 @@ const rand_title_color = () => {
     const colors = ['#f05a67', '#30a4dc', '#b2cf65'] 
     const index = Math.floor(Math.random()*colors.length)
     document.getElementById('title').style.color = colors[index]
+}
+
+const ask_for_pass = () =>{
+    const pass = prompt("Atualmente esta aplicação está disponível apenas para um grupo pequeno de pessoas, insira a senha: ")
+
+    document.cookie = `pass=${pass}`
 }
 
 const toggle_thanks_modal = (action) => {

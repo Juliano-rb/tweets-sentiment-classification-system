@@ -1,4 +1,5 @@
 const api_url = 'https://tweet-dataset-creator-api.herokuapp.com'
+const enable_multiple_avaliations = false
 
 const new_tweet = () => {
     get_tweet()
@@ -42,9 +43,34 @@ const show_tweet = (tweet) =>{
     const tweet_id = tweet.post_id
     const doc_id = tweet._id
     const text = tweet.text
+    const evals = tweet.evals_count
+
+    document.getElementById('evals_count').innerHTML = evals
 
     const container = document.getElementById('tweet_container')
-    container.innerHTML = ''
+    container.innerHTML = ""
+
+    if (evals > 0 & !enable_multiple_avaliations){
+        container.innerHTML = 
+            `
+            <div class='card hover-em'>
+                <div class="alert large okay">
+                    <span class="alert-icon">
+                        <i class="petalicon petalicon-check-round"></i>
+                    </span>
+                    <div class="alert-text">
+                        <p>
+                            <strong>Todos os tweets foram classificados!</strong><br>
+                            Volte aqui quando forem adicionados novos tweets à base de dados
+                        </p>
+                    </div>
+                </div>
+            </div>
+            `
+            document.getElementById('btn-group').style.visibility = 'hidden'
+            document.getElementsByClassName('small_text')[0].style.visibility = 'hidden'
+        return
+    }
 
     twttr.widgets.createTweet(
         tweet_id,

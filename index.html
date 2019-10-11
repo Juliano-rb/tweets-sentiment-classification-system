@@ -15,7 +15,7 @@
     <div class="container-wrap content">    
         <div class=''>
             <div class='section-header'>
-                <h2 id ='title'>Classifique o sentimento deste este tweet</h2>
+                <h2 id ='title'>Classifique o sentimento deste este tweet<small class="small_text"><br>Classificado por <span id='evals_count'>0</span> pessoas</small></h2>
             </div>  
             
             <div class='container stretch' id='tweet_container'>
@@ -23,7 +23,7 @@
             </div>
 
             <div class='container stretch'>
-                <div class="btn-group options">
+                <div class="btn-group options" id="btn-group">
                     <button class="btn red hollow"
                             data-toggle="toggle"
                             data-toggle-state="active"
@@ -67,7 +67,7 @@
     <script>
         document.onload = new_tweet()
         rand_title_color()
-        ask_for_pass()
+        make_questions()
     </script>
 </body>
 </html>

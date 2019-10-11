@@ -61,3 +61,8 @@ blockquote p {
     padding: 0px;
     padding-bottom: 10px;
 }
+
+
+.small_text{
+    font-size: 0.5em;
+}

@@ -103,6 +103,8 @@ const show_tweet = (tweet) =>{
         }
     })
 
+    document.getElementById('btn-group').style.visibility = 'visible'
+    document.getElementsByClassName('small_text')[0].style.visibility = 'visible'
     container.setAttribute('doc_id', doc_id)
 }
 
@@ -112,8 +114,8 @@ const rand_title_color = () => {
     document.getElementById('title').style.color = colors[index]
 }
 
-const ask_for_pass = () =>{
-    const pass = prompt("Atualmente esta aplicação está disponível apenas para um grupo pequeno de pessoas, insira a senha: ")
+const make_questions = () =>{
+    const pass = prompt("Atualmente esta aplicação está disponível apenas para um grupo pequeno de pessoas.\nInsira a senha de acesso: ")
 
     localStorage.setItem('pass', pass);
 }

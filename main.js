@@ -15,7 +15,7 @@ const evaluate_tweet = (sentiment) => {
     .then( response => {
         console.log(response.data)
         if (response.data.status == 'error'){
-            alert("Um erro ocorreu :/")
+            alert("Um erro ocorreu.\nSenha incorreta?")
         }
         else{
             toggle_thanks_modal('show')

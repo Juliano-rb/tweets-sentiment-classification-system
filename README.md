@@ -1,5 +1,4 @@
 # fetch-tweets-to-mongodb
-Fetch tweets using search tearms (companie names) and store it in a mongodb database
 
 This script was created to build a database that can be used with [tweet-dataset-creator-api](https://github.com/Juliano-rb/tweet-dataset-creator-api) and [tweet-dataset-creator-client](https://github.com/Juliano-rb/tweet-dataset-creator-client).
 
@@ -12,11 +11,15 @@ The purpose of the three projects is to create a colaborative dataset of tweets 
 3. [tweet-dataset-creator-client](https://github.com/Juliano-rb/tweet-dataset-creator-client): Is a client that consumes the previous api providing a friendly web page where users can evaluate tweets.
 
 # How to use?
-Create a credentials.py file in the same folder of fetch-tweets-by-searchterm.py with the following structure and replace 'your*' strings with your own credentials:
+## Prerequisites
+* A mongodb database running. I used a free account at https://cloud.mongodb.com/user to this.
+* A developer twitter app registered at https://developer.twitter.com/en/apps.
+
+Create a credentials.py file in the same folder of fetch-tweets-by-searchterm.py with the following structure and replace `'your*'` strings with your own credentials:
 
 ```python
 # mongo url
-mongo_url = 'your_mongo_connection_url'
+mongo_url = 'your_mongo_connection_url_with_user_and_pass'
 
 # twitter autentication stuffs
 t_consumer_key = 'your_twitter_consumer_key'

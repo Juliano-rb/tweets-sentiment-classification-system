@@ -8,7 +8,9 @@ module.exports = {
             // get a random document index
             // const count = await Tweet.countDocuments()
             // const randomTweet = Math.floor(Math.random() * count)
-            const tweet = await Tweet.findOne().sort('evals_count')
+            const tweet = await Tweet.findOne(
+                {flagged : null}
+            ).sort('evals_count')
 
             if (tweet == null){
                 return res.json({status:'error', message:`couldn't fetch tweets, database seems empty`})
@@ -51,6 +53,34 @@ module.exports = {
             await tweet.save()
 
             return res.json({status:'success', message:`evaluation has been saved`, counts: tweet.sentiments})    
+        } catch (error) {
+            console.error(error)
+            return res.json({status:'error', message:`an error occurred in the server`})
+        }
+    },
+    async flag_tweet (req,res) {
+        console.log(req.params)
+
+        const tweet_id = req.params.id
+        console.log(`flagging tweet ${tweet_id}`)
+        const user_password = req.body.pass
+        const password = process.env.PASSWORD
+
+        console.log('user_pass:'+user_password)
+        console.log('server:'+password)
+
+        if (password && user_password != password){
+            return res.json({status:'error', message:`invalid password provided`})
+        }
+
+        try {
+            const tweet = await Tweet.findById(tweet_id)
+
+            tweet.flagged = true
+
+            await tweet.save()
+
+            return res.json({status:'success', message:`this tweet was successfully flagged`, counts: tweet.sentiments})    
         } catch (error) {
             console.error(error)
             return res.json({status:'error', message:`an error occurred in the server`})

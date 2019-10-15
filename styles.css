@@ -66,3 +66,13 @@ blockquote p {
 .small_text{
     font-size: 0.5em;
 }
+
+#flag-button{
+    border-color: red;
+    color: red;
+}
+
+
+#flag-button:hover{
+    background-color: silver;
+}

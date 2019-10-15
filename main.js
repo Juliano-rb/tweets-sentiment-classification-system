@@ -39,12 +39,33 @@ const post_eval = (tweet_doc_id, sentiment) => {
     )
 }
 
+const flag_tweet = () => {
+    const doc_id = document.getElementById('tweet_container').getAttribute('doc_id')
+
+    axios.post(
+        `${api_url}/flag/${doc_id}`,
+        {
+            "pass": localStorage.getItem('pass')
+        }
+    ).then(response => {
+        console.log(response.data)
+        if (response.data.status == 'error'){
+            alert("Um erro ocorreu.\nSenha incorreta?")
+        }
+        else{
+            alert("Este tweet não será mais exibido para avaliação.")
+            new_tweet()
+        }
+    })
+    .catch( error => console.log(error))
+}
+
 const show_tweet = (tweet) =>{
     const tweet_id = tweet.post_id
     const doc_id = tweet._id
     const text = tweet.text
     const evals = tweet.evals_count
-
+    console.log(doc_id)
     document.getElementById('evals_count').innerHTML = evals
 
     const container = document.getElementById('tweet_container')

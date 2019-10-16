@@ -5,10 +5,17 @@ module.exports = {
         console.log("retrieve tweet called")
 
         try {
-            // get a random document index
-            // const count = await Tweet.countDocuments()
-            // const randomTweet = Math.floor(Math.random() * count)
-            const tweet = await Tweet.findOne().sort('evals_count')
+            filter = { "$or": [{
+                            'evals_count':null
+                        }, {
+                            "evals_count": 0
+                        }]
+                    }
+            // get a random document
+            const count = await Tweet.countDocuments(filter)
+                
+            const skip = Math.floor(Math.random() * count) - 1
+            const tweet = await Tweet.findOne(filter).sort('evals_count').skip(skip)
 
             if (tweet == null){
                 return res.json({status:'error', message:`couldn't fetch tweets, database seems empty`})

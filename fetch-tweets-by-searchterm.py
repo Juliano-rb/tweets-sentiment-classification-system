@@ -44,21 +44,23 @@ global_count = 0
 for companie in companies:
     print(bcolors.HEADER + f'\nfetching tweets about term: {companie}' + bcolors.ENDC)
     # retweets not allowed and we want the pt language (ISO 639-1 Code)
-    results = api.search(q=companie+' -filter:retweets', lang='pt', rpp = tweets_per_term)
+    results = api.search(q="\""+companie+"\""+" -filter:retweets AND -filter:replies", lang='pt', rpp = tweets_per_term, tweet_mode='extended')
+    # tweepy.Cursor(api.search,q=companie+" -filter:retweets").items(maxTweets)
+
     count = 0
-    for tweet in results:
+    for t in results:
         tweet = {
-            'text':tweet.text,
-            'username':tweet.user.screen_name,
-            'post_id':tweet.id,
-            'post_created_at':tweet.created_at,
+            'text':t.full_text,
+            'username':t.user.screen_name,
+            'post_id':t.id,
+            'post_created_at':t.created_at,
             'subject':companie,
-            'url' : f"https://twitter.com/{tweet.user.screen_name}/status/{tweet.id}"
+            'url' : f"https://twitter.com/{t.user.screen_name}/status/{t.id}"
         }
 
         if not already_exists(tweet['post_id']):
             result=db.tweets.insert_one(tweet)
-            print(bcolors.OKGREEN + u"{}-> Inserted: '{}...'".format(count, tweet['text'][:50]) + bcolors.ENDC + " _id:" + str(result.inserted_id))
+            print(bcolors.OKGREEN + str(count) + "-> Inserted: "+ tweet['text'] + bcolors.ENDC )
             count += 1
         else :
             print(bcolors.WARNING + "-> skipping insertion of an already existing tweet in the dataset."+bcolors.ENDC)

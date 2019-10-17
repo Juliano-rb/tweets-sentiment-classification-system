@@ -4,6 +4,7 @@ const TweetSchema = new mongoose.Schema({
     post_id : String,
     url: String,
     text: String,
+    subject: String,
     flagged: Boolean,
     sentiments:{
         negative: 

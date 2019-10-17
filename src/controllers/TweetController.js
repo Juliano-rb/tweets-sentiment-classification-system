@@ -5,12 +5,18 @@ module.exports = {
         console.log("retrieve tweet called")
 
         try {
-            filter = { "$or": [{
-                            'evals_count':null
-                        }, {
-                            "evals_count": 0
-                        }],
-                        flagged : null
+            filter = { 
+                        "$and" :
+                        [
+                            {
+                                "$or": 
+                                [
+                                    {"evals_count":null}, 
+                                    {"evals_count": 0}
+                                ]
+                            },
+                            {flagged : null}
+                        ]
                     }
             // get a random document
             const count = await Tweet.countDocuments(filter)

@@ -1,4 +1,5 @@
 const api_url = 'https://tweet-dataset-creator-api.herokuapp.com'
+// const api_url = 'http://localhost:3333'
 const enable_multiple_avaliations = false
 
 const new_tweet = () => {
@@ -65,8 +66,11 @@ const show_tweet = (tweet) =>{
     const doc_id = tweet._id
     const text = tweet.text
     const evals = tweet.evals_count
+    const subject = tweet.subject
+
     console.log(doc_id)
     document.getElementById('evals_count').innerHTML = evals
+    document.getElementById('subject').innerHTML = subject
 
     const container = document.getElementById('tweet_container')
     container.innerHTML = ""

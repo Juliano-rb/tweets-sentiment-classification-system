@@ -19,7 +19,7 @@ const evaluate_tweet = (sentiment) => {
             alert("Um erro ocorreu.\nSenha incorreta?")
         }
         else{
-            toggle_thanks_modal('show')
+            //toggle_thanks_modal('show')
             new_tweet()
         }
     })

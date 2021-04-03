@@ -39,6 +39,7 @@ with open(companiespath, mode="r", encoding="utf-8") as f:
        print(bcolors.OKBLUE+ f"-> {companie}" + bcolors.ENDC)
        companies.append(companie)
 
+print(f"found {len(companies)} search term")
 # iterate over search terms list searching tweets about each of them and storing into a mongodb database
 global_count = 0
 for companie in companies:
@@ -63,8 +64,8 @@ for companie in companies:
             print(bcolors.OKGREEN + str(count) + "-> Inserted: "+ tweet['text'] + bcolors.ENDC )
             count += 1
         else :
-            print(bcolors.WARNING + "-> skipping insertion of an already existing tweet in the dataset."+bcolors.ENDC)
-    print("{} tweets were inserted into the database".format(count))
+            print(bcolors.WARNING + " -> skipping insertion of an already existing tweet in the dataset."+bcolors.ENDC)
+    print("{} tweets about {} were inserted into the database".format(count, companie))
     global_count += count
 
 print("The execution was completed successfully.")

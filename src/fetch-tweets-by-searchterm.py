@@ -30,7 +30,7 @@ def already_exists(tweet_id):
 
 # reads the file with search terms list
 companies = []
-companiespath = 'companies'
+companiespath = 'search-terms'
 print(f"reading search terms in file {companiespath}")
 
 with open(companiespath, mode="r", encoding="utf-8") as f:

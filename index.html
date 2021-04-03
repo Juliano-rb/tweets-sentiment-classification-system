@@ -44,6 +44,7 @@
                     <button class="btn hollow"
                             data-toggle="toggle"
                             id='new-tweet'
+                            disabled
                             onclick="new_tweet()">&#9193; Próximo</button>
                     <button class="btn green hollow"
                             data-toggle="toggle"
@@ -77,12 +78,7 @@
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./main.js"></script>
+    <script type="module" src="./main.js"></script>
     <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script>
-        document.onload = new_tweet()
-        rand_title_color()
-        make_questions()
-    </script>
 </body>
 </html>

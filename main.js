@@ -1,5 +1,5 @@
-const api_url = 'https://tweet-dataset-creator-api.herokuapp.com'
-// const api_url = 'http://localhost:3333'
+import api_server_url from "./api_url.js"
+const api_url = api_server_url || 'http://localhost:3333'
 const enable_multiple_avaliations = false
 
 const new_tweet = () => {
@@ -157,3 +157,13 @@ const toggle_thanks_modal = (action) => {
         modal.style.visibility = 'hidden'
     }
 }
+
+window.evaluate_tweet = evaluate_tweet
+window.flag_tweet = flag_tweet
+window.new_tweet = new_tweet
+
+window.addEventListener('load', (event)=>{
+    new_tweet()
+    rand_title_color()
+    make_questions()
+})

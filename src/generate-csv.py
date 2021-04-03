@@ -39,8 +39,9 @@ def get_dataset_list():
 
 dataset_list = get_dataset_list()
 
-print(dataset_list[0])
-
 df = pd.DataFrame(dataset_list)
-with open('tweets.csv', 'w', encoding="utf-8", newline="\n") as f:
+output_filename = 'tweets.csv'
+with open(output_filename, 'w', encoding="utf-8", newline="\n") as f:
    df.to_csv(f, header=["username", "id", "datetime", "text", "class"], index=False, sep=";", encoding="utf-8", line_terminator='\r\n')
+
+print(f"output saved at {output_filename}")

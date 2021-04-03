@@ -15,7 +15,7 @@ The purpose of the three projects is to create a colaborative dataset of tweets 
 * A mongodb database running. I used a free account at https://cloud.mongodb.com/user to this.
 * A developer twitter app registered at https://developer.twitter.com/en/apps.
 
-Create a credentials.py file in the same folder of fetch-tweets-by-searchterm.py with the following structure and replace `'your*'` strings with your own credentials:
+Edit the credentials.py file in src folder replacing `'your*'` strings with your own credentials:
 
 ```python
 # mongo url

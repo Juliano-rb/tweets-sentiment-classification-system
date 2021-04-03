@@ -28,7 +28,7 @@ npm install
 * ``POST /evaluate/:id/:evaluation``: sets a sentiment evaluation for a tweet
 * ``POST /flag/:id``: flags a tweet as inappropriate or not useful
 
-All *POST* requests accepts an optional body parameter named ``pass`` with the password provided in the env variable ``PASSWORD``
+All *POST* requests accepts an optional body parameter named ``pass`` with the password provided in the env variable ``PASSWORD``:
 ```Javascript
 {
 	"pass":123

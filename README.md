@@ -17,11 +17,11 @@ MONGO_URL=YOUR_MONGO_DATABASE_URL
 npm install
 ```
 
-4. Well done! The server is listening on: localhost:3333
+4. Well done! The server is listening on: ``localhost:3333``
 
 
 ## Available endpoints:
 
-* ``/tweet``: returns a tweet from database.
-* ``/evaluate/:id/:evaluation``: sets a sentiment evaluation for a tweet
-* ``/flag/:id``: flags a tweet as inappropriate or not useful
+* ``GET /tweet``: returns a tweet from database.
+* ``POST /evaluate/:id/:evaluation``: sets a sentiment evaluation for a tweet
+* ``POST /flag/:id``: flags a tweet as inappropriate or not useful

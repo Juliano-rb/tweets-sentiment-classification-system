@@ -44,7 +44,7 @@ global_count = 0
 for companie in companies:
     print(bcolors.HEADER + f'\nfetching tweets about term: {companie}' + bcolors.ENDC)
     # retweets not allowed and we want the pt language (ISO 639-1 Code)
-    results = api.search(q="\""+companie+"\""+" -filter:retweets AND -filter:replies", lang='pt', rpp = tweets_per_term, tweet_mode='extended')
+    results = api.search(q="\""+companie+"\""+" -filter:retweets AND -filter:replies", lang='pt', count = tweets_per_term, tweet_mode='extended')
     # tweepy.Cursor(api.search,q=companie+" -filter:retweets").items(maxTweets)
 
     count = 0

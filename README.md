@@ -15,7 +15,7 @@ The purpose of the three projects is to create a colaborative dataset of tweets 
 * A mongodb database running. I used a free account at https://cloud.mongodb.com/user to this.
 * A developer twitter app registered at https://developer.twitter.com/en/apps.
 
-Edit the credentials.py file in src folder replacing `'your*'` strings with your own credentials:
+1. Edit the credentials.py file in src folder replacing `'your*'` strings with your own credentials:
 
 ```python
 # mongo url
@@ -28,4 +28,22 @@ t_access_token = 'your_twitter_acces_token'
 t_access_token_secret = 'your_twitter_acces_token_secret'
 ```
 
-In `companies` file you need to put the search terms you want to retrieve tweets about.
+2. Install requirements with:
+```bash
+pip3 install --upgrade pip -r requirements.txt
+```
+## Fetching tweets about search-terms and save then to a mongo database:
+
+1. In `search-terms` file you need to put the search terms you want to retrieve tweets about.
+
+2. Run the commands:
+```
+python src/fetch-tweets-by-searchterm.py
+```
+
+## Generating a csv file using the content of the database created:
+
+1. Run the commands:
+```
+python src/generate-csv.py  
+```

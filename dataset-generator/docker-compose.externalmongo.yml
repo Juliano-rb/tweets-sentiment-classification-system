@@ -1,0 +1,19 @@
+# use this file if you want the application running with a external mongodb database like mongodb atlas.
+# you should create a .env file with the envrioment variable MONGO_URL with your connection string
+services:
+  evaluate-service:
+    build: evaluate-service/
+    ports:
+      - "3333:3333"
+    command: npm run start
+    environment: 
+      - MONGO_URL=${MONGO_URL}
+      - PASSWORD=${API_PASSWORD}
+
+  ui:
+    build: ui/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - evaluate-service
+    command: npm start

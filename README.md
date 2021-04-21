@@ -12,9 +12,9 @@ As aplicações com seus repositórios são as seguintes:
 - ``Model generator``: Aplicação que gera um modelo pronto para ser utilizado pela aplicação anterior a partir de um dataset de tweets.
 
 ## Gerador de dataset
-- ``UI``: https://github.com/Juliano-rb/tweet-dataset-creator-client
-- ``Evaluate Service``: https://github.com/Juliano-rb/tweet-dataset-creator-api
-- ``Dataset-tools``: https://github.com/Juliano-rb/fetch-tweets-to-mongodb
+- ``UI``: Interface de usuário para alimentar o dataset com sua avaliação sobre tweets https://github.com/Juliano-rb/tweet-dataset-creator-client.
+- ``Evaluate Service``: Serviço que onde a ``UI`` se conecta para alimentar a base de dados mongodb e buscar tweets https://github.com/Juliano-rb/tweet-dataset-creator-api 
+- ``Dataset-tools``: Ferramentas para pre-alimentar o banco de dados com tweets novos e gerar o dataset final (.csv) https://github.com/Juliano-rb/fetch-tweets-to-mongodb
 
 ## Road-map
 - [x] Dockenizar Classificador de sentimentos de twets

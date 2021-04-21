@@ -1,12 +1,22 @@
 services:
+  mongo:
+    image: mongo:4.4-bionic
+    restart: always
+    ports: 
+        - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
 
   evaluate-service:
     build: evaluate-service/
     ports:
       - "3333:3333"
     command: npm run start
+    depends_on:
+      - mongo
     environment: 
-      - MONGO_URL=${MONGO_URL}
+      - MONGO_URL=mongodb://admin:admin123@mongo:27017/Dataset?authSource=admin&readPreference=primary
       - PASSWORD=${API_PASSWORD}
 
   ui:

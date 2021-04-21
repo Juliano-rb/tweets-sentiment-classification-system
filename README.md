@@ -16,6 +16,9 @@ As aplicações com seus repositórios são as seguintes:
 - ``Evaluate Service``: Serviço que onde a ``UI`` se conecta para alimentar a base de dados mongodb e buscar tweets https://github.com/Juliano-rb/tweet-dataset-creator-api 
 - ``Dataset-tools``: Ferramentas para pre-alimentar o banco de dados com tweets novos e gerar o dataset final (.csv) https://github.com/Juliano-rb/fetch-tweets-to-mongodb
 
+## Gerador de dataset
+Veja [readme de dataset-generator](/dataset-generator/readme.md) para instruções sobre como iniciar a aplicação.
+
 ## Road-map
 - [x] Dockenizar Classificador de sentimentos de twets
 - [x] Dockenizar ``mongodb database``para subir junto do sistema SE o usuário desejar.

@@ -18,7 +18,7 @@ As aplicações com seus repositórios são as seguintes:
 
 ## Road-map
 - [x] Dockenizar Classificador de sentimentos de twets
-- [ ] Dockenizar ``mongodb database``para subir junto do sistema SE o usuário desejar.
+- [x] Dockenizar ``mongodb database``para subir junto do sistema SE o usuário desejar.
 - [ ] Transformar ``dataset-tools`` em um serviço que possa servir um dataset novo quando necessário.
 - [ ] Modularizar o ``model generator`` para facilitar seu uso programaticamente.
 - [ ] Criar uma rota no Aplicativo classificador para atualizar o modelo existente.

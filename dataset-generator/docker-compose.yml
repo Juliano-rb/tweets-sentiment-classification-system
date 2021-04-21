@@ -1,0 +1,18 @@
+services:
+
+  evaluate-service:
+    build: evaluate-service/
+    ports:
+      - "3333:3333"
+    command: npm run start
+    environment: 
+      - MONGO_URL=${MONGO_URL}
+      - PASSWORD=${API_PASSWORD}
+
+  ui:
+    build: ui/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - evaluate-service
+    command: npm start

@@ -1,0 +1,23 @@
+{
+  "name": "tweet-dataset-creator-client",
+  "version": "1.0.0",
+  "description": "A HTML client for https://github.com/Juliano-rb/tweet-dataset-creator-api",
+  "main": "main.js",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juliano-rb/tweet-dataset-creator-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juliano-rb/tweet-dataset-creator-client/issues"
+  },
+  "homepage": "https://github.com/Juliano-rb/tweet-dataset-creator-client#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}

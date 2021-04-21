@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+h2{
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .content{
+        width: 100%;
+        margin: 0 auto;
+    }    
+}
+@media (min-width: 601px) { 
+    .content{
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.twitter-tweet{
+    margin: 0 auto;
+}
+
+.options{
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: wrap;              /* default value; can be omitted */
+    justify-content: center; /* switched from default (flex-start, see below) */
+}
+
+blockquote {
+    margin: 1.5em 10px;
+}
+blockquote:before {
+    color:#69bde6;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+}
+blockquote:after {
+    color:#69bde6;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.6em;
+}
+blockquote p {
+    display: inline;
+}
+
+#thanks-modal{
+    visibility: hidden;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.raw_tweet{
+    padding: 0px;
+    padding-bottom: 10px;
+}
+
+
+.small_text{
+    font-size: 0.5em;
+}
+
+#flag-button{
+    border-color: red;
+    color: red;
+}
+
+
+#flag-button:hover{
+    background-color: silver;
+}

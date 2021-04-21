@@ -21,7 +21,7 @@ module.exports = {
             // get a random document
             const count = await Tweet.countDocuments(filter)
                 
-            const skip = Math.floor(Math.random() * count) - 1
+            const skip = Math.floor(Math.random() * count)
             const tweet = await Tweet.findOne(filter).sort('evals_count').skip(skip)
 
             if (tweet == null){

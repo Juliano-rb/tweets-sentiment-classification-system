@@ -4,6 +4,8 @@ WORKDIR /frontend/
 
 COPY . /frontend/
 
+RUN apk update && apk add bash
+
 RUN npm install
 
 EXPOSE 8080

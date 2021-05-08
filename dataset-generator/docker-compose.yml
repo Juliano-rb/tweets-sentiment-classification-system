@@ -25,4 +25,6 @@ services:
       - "8080:8080"
     depends_on:
       - evaluate-service
-    command: npm start
+    command: bash -c "chmod +x ./create_env.sh && ./create_env.sh && npm start"
+    links:
+      - evaluate-service

@@ -25,6 +25,8 @@ services:
       - "8080:8080"
     depends_on:
       - evaluate-service
+    environment:
+      - api_url=${API_URL}
     command: bash -c "chmod +x ./create_env.sh && ./create_env.sh && npm start"
     links:
       - evaluate-service
